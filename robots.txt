@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://REPLACE-WITH-YOUR-PAGES-URL/sitemap.xml
+Sitemap: https://bortman01.github.io/Hookah/sitemap.xml
