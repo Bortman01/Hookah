@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 549 124" role="img" aria-label="NUA SMOKE">
+  <rect x="262" y="30" width="263" height="70" fill="#3DB54A"/>
+  <g fill="#FFFFFF" fill-rule="evenodd">
+    <path d="M0 0H30L62 50V0H92V100H62L30 50V100H0Z"/>
+    <path transform="translate(98 0)" d="M0 0H29V58A15 15 0 0 0 59 58V0H88V60A44 40 0 0 1 0 60Z"/>
+    <path transform="translate(192 0)" d="M0 100L32 0H64L96 100H66L60.2 82H35.8L30 100Z M42.2 62H53.8L48 43.75Z"/>
+  </g>
+  <g fill="#161515" fill-rule="evenodd">
+    <path transform="translate(298 43) scale(0.44)" fill="none" stroke="#161515" stroke-width="26" d="M78 24C72 12 60 13 42 13C24 13 13 20 13 31C13 44 26 47 42 50C60 53 71 57 71 70C71 81 60 87 42 87C24 87 12 83 6 74"/>
+    <path transform="translate(337 43) scale(0.44)" d="M0 100V0H34L55 55L76 0H110V100H82V45L64 92H46L28 45V100Z"/>
+    <path transform="translate(388.4 43) scale(0.44)" d="M0 50A48 50 0 1 0 96 50A48 50 0 1 0 0 50Z M28 50A20 26 0 1 0 68 50A20 26 0 1 0 28 50Z"/>
+    <path transform="translate(433.6 43) scale(0.44)" d="M0 0H29V38L57 0H91L53 47L94 100H59L33 63L29 68V100H0Z"/>
+    <path transform="translate(478.0 43) scale(0.44)" d="M0 0H72V24H29V39H66V61H29V76H72V100H0Z"/>
+  </g>
+</svg>
