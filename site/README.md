@@ -19,54 +19,38 @@ assets/photos|logo|video
 robots.txt, sitemap.xml
 ```
 
-## Шаг 0. Впишите адрес сайта
+## Где живёт сайт
 
-В файлах лежит заглушка `https://REPLACE-WITH-YOUR-PAGES-URL/` — это canonical,
-hreflang, og:image и sitemap. Замените её на реальный адрес Pages
-(`https://<логин>.github.io/<репозиторий>/`) во всех файлах:
+- Адрес: **https://bortman01.github.io/Hookah/**. Он уже прописан в canonical, hreflang, og:image, `sitemap.xml` и `robots.txt`
+- Исходники: папка `site/` в ветке `main` репозитория `Bortman01/Hookah`
+- Публикация: ветка `gh-pages`. В ней лежит только содержимое `site/`, в корне
+- Pages: **Settings → Pages → Deploy from a branch → `gh-pages` / `(root)`**
 
-```bash
-grep -rl REPLACE-WITH-YOUR-PAGES-URL . | xargs sed -i '' \
-  's|https://REPLACE-WITH-YOUR-PAGES-URL/|https://<логин>.github.io/<репозиторий>/|g'
-```
+## Как обновить сайт
 
-Без этого сайт работает, но поисковики будут получать ссылки на несуществующий
-адрес. Если правите вручную — это 6 html-файлов, `sitemap.xml` и `robots.txt`.
-
-## Как выложить на GitHub Pages (ветка gh-pages)
-
-1. Создайте репозиторий на github.com (например `nuahule-site`), публичный.
-2. На странице пустого репозитория: **uploading an existing file** → перетащите
-   **всё содержимое** этой папки (не саму папку, а файлы и папки внутри неё).
-   Commit → ветка `main`.
-3. Создайте ветку `gh-pages`: вверху слева переключатель ветки → впишите
-   `gh-pages` → **Create branch: gh-pages from main**.
-4. **Settings → Pages**: Source = *Deploy from a branch*, Branch = `gh-pages`,
-   папка `/ (root)` → **Save**.
-5. Через 1–2 минуты сайт будет по адресу
-   `https://<логин>.github.io/<репозиторий>/`.
-   Обновление: коммит в `gh-pages` — деплой идёт автоматически.
-
-Через командную строку то же самое:
+1. Правите файлы в `site/` и коммитите в `main`
+2. Из корня репозитория выкладываете папку в `gh-pages`:
 
 ```bash
-cd путь/к/этой/папке
-git init -b main
-git add .
-git commit -m "NUA SMOKE site"
-git remote add origin https://github.com/<логин>/<репозиторий>.git
-git push -u origin main
-git checkout -b gh-pages
-git push -u origin gh-pages
+git push origin `git subtree split --prefix site main`:gh-pages --force
 ```
 
-Дальше шаг 4 в настройках репозитория.
+Через 1–2 минуты изменения появятся на сайте. `--force` здесь нормален: `gh-pages` всегда
+пересобирается из `site/` и руками не редактируется.
+
+Если адрес когда-нибудь поменяется (свой домен, другой репозиторий), замените
+`https://bortman01.github.io/Hookah/` во всех html, `sitemap.xml` и `robots.txt`:
+
+```bash
+grep -rl 'https://bortman01.github.io/Hookah/' . | xargs sed -i 's|https://bortman01.github.io/Hookah/|https://НОВЫЙ-АДРЕС/|g'
+```
 
 ## Свой домен
 
 Settings → Pages → Custom domain: вписать домен, затем у регистратора
-добавить CNAME на `<логин>.github.io`. GitHub сам создаст файл `CNAME`
-в ветке; не удаляйте его при следующей загрузке.
+добавить CNAME на `bortman01.github.io`. GitHub создаст файл `CNAME` в `gh-pages`,
+но следующий force-push его сотрёт. Поэтому положите такой же файл `CNAME`
+(одна строка с доменом) в `site/` и закоммитьте в `main`.
 
 ## Что менять чаще всего
 
