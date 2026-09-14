@@ -53,6 +53,16 @@
     });
   }
 
+  // Bolt has no public link with a destination: copy the address, then let the link open the app
+  [].slice.call(document.querySelectorAll('[data-copy-go]')).forEach(function (a) {
+    a.addEventListener('click', function () {
+      var was = a.textContent;
+      if (navigator.clipboard) navigator.clipboard.writeText(a.getAttribute('data-copy-go')).catch(function () {});
+      a.textContent = a.getAttribute('data-copied') || 'Copied';
+      setTimeout(function () { a.textContent = was; }, 2500);
+    });
+  });
+
   [].slice.call(document.querySelectorAll('[data-copy]')).forEach(function (b) {
     b.addEventListener('click', function (e) {
       e.preventDefault();
