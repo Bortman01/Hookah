@@ -20,7 +20,7 @@
   }
 
   var HERO_SPEED = 1.15;
-  [].slice.call(document.querySelectorAll('.hero__media video')).forEach(function (v) {
+  [].slice.call(document.querySelectorAll('.hero__media video, .bgvid video')).forEach(function (v) {
     var fast = function () { v.defaultPlaybackRate = HERO_SPEED; v.playbackRate = HERO_SPEED; };
     fast();
     // some browsers reset the rate when the source loads
